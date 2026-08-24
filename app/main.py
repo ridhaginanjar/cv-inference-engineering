@@ -1,5 +1,6 @@
 from fastapi import FastAPI, UploadFile, File
 from PIL import Image
+from src import predict_in_tfl
 
 import io
 
@@ -15,8 +16,6 @@ async def upload_images(file: UploadFile = File(...)):
 
     image = Image.open(io.BytesIO(file_bytes))
 
-    return {
-        "filename": file.filename,
-        "format": image.format,
-        "size": image.size  # (width, height)
-    }
+    response_in_json = predict_in_tfl(image)
+
+    return response_in_json
