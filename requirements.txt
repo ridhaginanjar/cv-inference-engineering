@@ -1,0 +1,4 @@
+tensorflow ~= 2.20
+numpy ~=2.0
+fastapi[standard] ~=0.141
+pillow ~=12.3
