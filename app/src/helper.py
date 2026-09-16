@@ -13,6 +13,8 @@ def read_imagenet_classes():
 
 def image_preprocess(image):
     img_dimension = (256,256)
+
+    image = image.convert("RGB")
     image = image.resize(img_dimension, Image.BICUBIC)
 
     image = np.array(image, dtype=np.float32)
