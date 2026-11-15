@@ -24,7 +24,7 @@ app.add_middleware(
 def root():
     return {"Hello":"World"}
 
-@app.post("/upload-image")
+@app.post("/predict")
 async def upload_images(file: UploadFile = File(...)):
     file_bytes = await file.read()
 
